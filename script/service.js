@@ -221,6 +221,7 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
                     };
                     break;
 
+
                 //二、登录
                 case "Login":
                     url = ajaxUrl.root+ajaxUrl.content;
@@ -234,7 +235,7 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
                     url = ajaxUrl.root+ajaxUrl.content;
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
 
                     break;
@@ -242,33 +243,33 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
                     //确定地址
                     url = ajaxUrl.root+ajaxUrl.content;
                     //重构请求数据
-                    p.NewsUID = list.UID;
+                    p.BannerUID = list.UID;
 
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
                 case "Banners_Update":
                     //确定地址
                     url = ajaxUrl.root+ajaxUrl.content;
                     //重构请求数据
-                    p.NewsUID = list.UID;
+                    p.BannerUID = list.UID;
 
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
                 case "Banners_Delete":
                     //确定地址
                     url = ajaxUrl.root+ajaxUrl.content;
                     //重构请求数据
-                    p.NewsUID = list.UID;
+                    p.BannerUID = list.UID;
 
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
                 case "Banners_GetList":
@@ -276,7 +277,6 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
                     //确定地址
                     url = ajaxUrl.root+ajaxUrl.content;
                     //重构请求数据
-
                     requestParam = {
                         Act:n,
                         Param:forRequest(p)
@@ -285,10 +285,10 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
                 //四、News
                 case "News_Create":
                     url = ajaxUrl.root+ajaxUrl.content;
-                    newRequest = p;
+
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
                 case "News_GetSingleInfo":
@@ -299,7 +299,7 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
 
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
                 case "News_Update":
@@ -310,7 +310,7 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
 
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
                 case "News_Delete":
@@ -321,7 +321,7 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
 
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
                 case "News_SetShowedOrHidden":
@@ -332,7 +332,7 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
 
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
                 case "News_SetTop":
@@ -340,17 +340,23 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
                     url = ajaxUrl.root+ajaxUrl.content;
                     //重构请求数据
                     p.NewsUID = list.UID;
+                    p.SetTop = !list.Showed;
 
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
                 case "News_GetList":
                     //确定地址
                     url = ajaxUrl.root+ajaxUrl.content;
                     //重构请求数据
+                    p.PageSize = 10;
 
+                    //NewsType = 分类按钮
+                    // NewsIndex = 排序按钮
+                    //KeyWords = 表单输入搜索
+                    //PageNumber = 按钮选择页码
                     requestParam = {
                         Act:n,
                         Param:forRequest(p)
