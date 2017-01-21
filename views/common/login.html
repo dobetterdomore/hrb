@@ -1,0 +1,24 @@
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" data-target="#myLogin" id="myLogin">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <div class="form-top-left">
+                    <h3>Login</h3>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="sr-only" for="form-username">Username</label>
+                    <input type="text" name="form-username" placeholder="Username" ng-model="log.Login.request.UserID" class="form-username form-control" id="form-username">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="form-password">Password</label>
+                    <input type="password" name="form-password" placeholder="Password" ng-model="log.Login.request.UserPwd" class="form-password form-control" id="form-password">
+                </div>
+                <button type="submit" class="btn btn-success" c-request attr1="Login" attr2="log.Login.request" attr3="log.Login.content">Sign in!</button>
+            </div>
+        </div>
+    </div>
+</div>
+

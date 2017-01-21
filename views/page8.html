@@ -1,0 +1,10 @@
+
+<div request attr1="Banners_GetList" attr2="advertising.Banners_GetList.request" attr3="advertising.Banners_GetList.content">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add New Event</button>
+    <div news-add ajax="advertising.Banners_Create" view="_view.banner.create"></div>
+</div>
+<table class="table table-hover table-bordered">
+    <thead list-top attr="_view.banner.list"></thead>
+
+    <tbody list-content datain="advertising.Banners_GetList.content.Data.List" viewin="_view.banner.list" buttonin="_view.banner.button" otherin="advertising"></tbody>
+</table>

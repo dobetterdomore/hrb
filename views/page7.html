@@ -1,0 +1,10 @@
+
+<div request attr1="Library_GetList" attr2="library.Library_GetList.request" attr3="library.Library_GetList.content">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add New Event</button>
+    <div news-add ajax="library.Library_Create" view="_view.library.create"></div>
+</div>
+<table class="table table-hover table-bordered">
+    <thead list-top attr="_view.library.list"></thead>
+
+    <tbody list-content datain="library.Library_GetList.content.Data.List" viewin="_view.library.list" buttonin="_view.library.button" otherin="library"></tbody>
+</table>

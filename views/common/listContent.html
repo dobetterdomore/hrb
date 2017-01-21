@@ -1,0 +1,12 @@
+<tbody>
+<tr ng-repeat="item in datain" class="vertical-middle">
+    <td class="text-center" ng-repeat="(key, value) in viewin">
+        <a>
+            <span ng-bind="item[key]"></span>
+        </a>
+    </td>
+    <td>
+        <button type="button" class="btn btn-info" ng-repeat="(key, value) in buttonin" ng-bind="value"  c-request attr1="{{ key }}" attr2="otherin[key].request" attr3="otherin[key].content" attr4="datain[$parent.$index]"></button>
+    </td>
+</tr>
+</tbody>

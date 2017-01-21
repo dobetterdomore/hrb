@@ -1,0 +1,48 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+html,body,#container{
+  width: 100%;
+}
+//the top is the module stylesheet, don't change it please;
+@mixin wh($w,$h){
+  width: $w;
+  height: $h;
+}
+
+.headerT{
+  @include wh(100%,55px);
+}
+
+.listN{
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.listBorder{
+  border-left: 1px solid #2b3745;
+}
+
+.sort{
+  background: url("../img/icons/icon/sort_both.png") right no-repeat;
+}
+.sort_up{
+  background: url("../img/icons/icon/sort_asc.png") right no-repeat;
+}
+.sort_down{
+  background: url("../img/icons/icon/sort_desc.png") right no-repeat;
+}
+
+.page-list .pagination {float:left;}
+.page-list .pagination span {cursor: pointer;}
+.page-list .pagination .separate span{cursor: default; border-top:none;border-bottom:none;}
+.page-list .pagination .separate span:hover {background: none;}
+.page-list .page-total {float:left; margin: 25px 20px;}
+.page-list .page-total input, .page-list .page-total select{height: 26px; border: 1px solid #ddd;}
+.page-list .page-total input {width: 40px; padding-left:3px;}
+.page-list .page-total select {width: 50px;}

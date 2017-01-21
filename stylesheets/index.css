@@ -1,0 +1,90 @@
+/* line 1, ../sass/index.scss */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+/* line 8, ../sass/index.scss */
+html, body, #container {
+  width: 100%;
+}
+
+/* line 17, ../sass/index.scss */
+.headerT {
+  width: 100%;
+  height: 55px;
+}
+
+/* line 21, ../sass/index.scss */
+.listN {
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* line 27, ../sass/index.scss */
+.listBorder {
+  border-left: 1px solid #2b3745;
+}
+
+/* line 31, ../sass/index.scss */
+.sort {
+  background: url("../img/icons/icon/sort_both.png") right no-repeat;
+}
+
+/* line 34, ../sass/index.scss */
+.sort_up {
+  background: url("../img/icons/icon/sort_asc.png") right no-repeat;
+}
+
+/* line 37, ../sass/index.scss */
+.sort_down {
+  background: url("../img/icons/icon/sort_desc.png") right no-repeat;
+}
+
+/* line 41, ../sass/index.scss */
+.page-list .pagination {
+  float: left;
+}
+
+/* line 42, ../sass/index.scss */
+.page-list .pagination span {
+  cursor: pointer;
+}
+
+/* line 43, ../sass/index.scss */
+.page-list .pagination .separate span {
+  cursor: default;
+  border-top: none;
+  border-bottom: none;
+}
+
+/* line 44, ../sass/index.scss */
+.page-list .pagination .separate span:hover {
+  background: none;
+}
+
+/* line 45, ../sass/index.scss */
+.page-list .page-total {
+  float: left;
+  margin: 25px 20px;
+}
+
+/* line 46, ../sass/index.scss */
+.page-list .page-total input, .page-list .page-total select {
+  height: 26px;
+  border: 1px solid #ddd;
+}
+
+/* line 47, ../sass/index.scss */
+.page-list .page-total input {
+  width: 40px;
+  padding-left: 3px;
+}
+
+/* line 48, ../sass/index.scss */
+.page-list .page-total select {
+  width: 50px;
+}

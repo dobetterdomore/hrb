@@ -1,0 +1,49 @@
+<!--具体表单内容-->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <div class="form-top-left">
+                    <h3>News Create</h3>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form role="form" class="form-horizontal" action="http://a2.bewheat.com:2016/ZZL/AdminHandler.ashx" method="post">
+                    <div text attr1="view.NewsTitle" attr2="ajax.request.NewsTitle"></div>
+                    <div text attr1="view.NewsTitle" attr2="ajax.request.NewsType"></div>
+                    <div largetext attr1="view.NewsAbstract" attr2="ajax.request.NewsAbstract"></div>
+                    <div largetext attr1="view.NewsContent" attr2="ajax.request.NewsContent"></div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">图1</label>
+                        <div class="col-sm-10">
+
+                            <input type="file" getform attr1="ajax.request.NewsImg01"  />
+                            <p class="help-block">必须是图片文件，且每个不能超过1Mb</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">图2</label>
+                        <div class="col-sm-10">
+                            <input type="file" getform attr1="ajax.request.NewsImg02"  />
+                            <p class="help-block">必须是图片文件，且每个不能超过1Mb</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-success center-block" c-request attr1="News_Create" attr2="ajax.request" attr3="ajax.content">提交</button>
+                        </div>
+                    </div>
+                </form>
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+

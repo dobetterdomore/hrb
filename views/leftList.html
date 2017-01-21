@@ -1,0 +1,10 @@
+<div class="col-md-2 listBorder">
+    <nav class="navbar navbar-inverse" role="navigation">
+        <ul class="nav nav-pills nav-stacked listN" role="tablist">
+            <li role="presentation" ng-click="tab()" ng-class="list" ng-repeat = "z in attr1">
+                <!--<a ng-href="{{ z[1] }}" ng-bind="z[0]" html-get-order outside1="{{ z[2] }}" outside2="z[4]" outside3="" outside4="z[3].content"></a>-->
+                <a ng-href="{{ attr2[$index] }}" ng-bind="z"></a>
+            </li>
+        </ul>
+    </nav>
+</div>

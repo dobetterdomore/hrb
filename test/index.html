@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+    <script>
+        //模拟的目标，他拥有一系列依赖的观察者
+       function ObserverList(){
+           this.observerList = [];
+       }
+
+       ObserverList.prototype.Add = function (obj) {
+           return this.observerList.push(obj)
+       };
+
+       ObserverList.prototype.Empty = function () {
+           this.observerList = [];
+       };
+
+       ObserverList.prototype.Count = function () {
+           return this.observerList.length;
+       };
+
+       ObserverList.prototype.Get = function (index) {
+           if(index > -1 && index < this.observerList.length){
+               return this.observerList[index];
+           }
+       };
+
+       ObserverList.prototype.Insert = function (obj,index) {
+           var pointer = -1;
+           if(index === 0){
+               this.observerList.unshift(obj);
+               pointer = index;
+           }else if(index === this.observerList.length){
+               this.observerList.push(obj);
+               pointer = index;
+           }
+           return pointer;
+       };
+
+       ObserverList.prototype.IndexOf = function (obj,startIndex) {
+           var i = startIndex,pointer = -1;
+
+           while (i< this.observerList.length){
+               if (this.observerList[i] === obj){
+                   pointer = i;
+               }
+               i++;
+           }
+           return pointer;
+       };
+
+
+       ObserverList.prototype.RemoveIndexAt = function () {
+          if(index === 0){
+              this.observerList.shift();
+          }else if(index === this.observerList.length -1){
+              this.observerList.pop();
+          }
+
+       };
+
+       function extend (obj,extension){
+           for (var key in obj){
+               extension[key] = obj[key];
+           }
+       }
+
+      //下面的代码是给目标，添加一种能力，这种能力可以在观察者列表上，添加、删除、和通知观察者；
+
+        function Subject (){
+            this.observers = new ObserverList();
+        }
+
+        Subject.prototype.AddObserver = function (observer) {
+            this.observers.Add(observer)
+        };
+
+        Subject.prototype.RemoveObserver = function (observer) {
+            this.observers.RemoveIndexAt(this.observers.IndexOf(observer, 0));
+        };
+
+        Subject.prototype.Notify = function (context) {
+            var observerCount = this.observers.Count();
+            for (var i = 0;i < observerCount;i++){
+                this.observers.Get(i).Update(context);
+            }
+        };
+
+        //下面是新的Observer
+
+        function Observer (){
+            this.Update = function () {
+                alert(1);
+            }
+        }
+    </script>
+                <!--以下定义ConcreteSubject和ConcreteObserver处理程序-->
+
+    <button id="addNewObserver">Add New Observer checkbox</button>
+    <input id="mainCheckbox" type="checkbox">
+    <div id="observersContainer"></div>
+
+<script>
+
+    //DOM元素
+    var controlCheckbox = document.getElementById("mainCheckbox"),
+        addBtn           = document.getElementById("addNewObserver"),
+        container        = document.getElementById("observersContainer");
+    //具体目标——Concrete Object
+    //利用subject 扩展 controlCheckbox
+    extend(new Subject(), controlCheckbox);                  //让controlCheckbox集成Observer对象的属性和继承属性
+
+    //点击checkbox 会触发通知到观察者上
+    controlCheckbox.onclick = new Function("controlCheckbox.Notify(controlCheckbox.checked)");
+    addBtn.onclick = AddNewObserver;             //???????????????????
+
+    //具体观察者
+
+    function AddNewObserver (){
+        var check = document.createElement("input");          //创建元素
+        check.type = "checkbox";                              //设置元素属性
+        extend(new Observer(), check);                         //让check集成Observer对象的属性和继承属性
+
+        check.Update = function (value) {                      //使用check继承来的属性和方法,有什么意义呢？？，这个方法没有用到实际的更新当中；
+            this.checked = value;
+        };
+
+        controlCheckbox.AddObserver(check);
+        container.appendChild(check);       //插入元素
+    }
+</script>
+</body>
+</html>

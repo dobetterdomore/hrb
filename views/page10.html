@@ -1,0 +1,32 @@
+<table class="table table-hover table-bordered">
+    <!--排序组件
+    指令1：sort（排序行为）
+    控制器1:listSort（数据结构）
+
+    修改：
+    listEvent.materials
+    -->
+    <thead>
+    <tr ng-controller="listSort">
+        <th sort ng-repeat="(key, value) in listEvent.materials" ng-bind="value"  attr="value" ></th>
+
+    </tr>
+    </thead>
+    <!--单个项目操作
+    指令1：content（内容行为）
+    控制器1:content（数据结构）
+
+    修改：
+    items
+    -->
+    <tbody ng-controller="content">
+    <tr ng-repeat="item in items" class="vertical-middle">
+        <td class="text-center" ng-repeat="(key, value) in item" ng-bind="value"></td>
+        <td>
+            <button type="button" class="btn btn-info" ng-bind="button.edit"></button>
+            <button type="button" class="btn btn-warning" ng-bind="button.down"></button>
+            <button type="button" class="btn btn-danger" ng-bind="button.delete"></button>
+        </td>
+    </tr>
+    </tbody>
+</table>

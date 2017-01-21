@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="moduleName" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS</title>
+    <script src="aa.js"></script>
+    <script src="http://cdn.bootcss.com/angular.js/2.0.0-beta.7/router.js"></script>
+
+    <script>
+
+
+        var appModule = angular.module('moduleName', ['ngRoute','ngAnimate','bookss']);
+        var appModule1 = angular.module('bookss', ['ngRoute','ngAnimate']);
+        appModule1.controller("helloCtrl",["$scope",function($scope){
+            $scope.greateing = {text:213}
+        }]);
+//        appModule.directive('hello', function() {
+//            return {
+//                restrict: 'E',
+//                template: '<div>Hi there</div>',
+//                replace: true
+//            };
+//        });
+
+        appModule.config(function($routeProvider){
+            $routeProvider.when('/hello',{
+                templateUrl:'tpls/hello.html',
+                controller:'helloCtrl'
+            }).otherwise({
+                redirectTo:"/hello"
+            });
+        });
+
+
+        //
+    </script>
+</head>
+<body>
+
+<div ng-view></div>
+
+</body>
+</html>

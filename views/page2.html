@@ -1,0 +1,52 @@
+<!--<div autoajax attr1="Banners_GetList" attr2="autoAjax.advertising" attr3="advertising.Banners_GetList.content">-->
+<!--外部点开表单按钮-->
+<div request attr1="Banners_GetList" attr2="autoAjax.advertising" attr3="advertising.Banners_GetList.content">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add New Event</button>
+    <div banner-add></div>
+</div>
+<table class="table table-hover table-bordered">
+    <thead list-top attr="_view.banner.list"></thead>
+    <!--
+    attr1：响应接口
+    attr2：Bottom的View文字
+    attr3：规定列表的列明和列数量，行数由Attr1来决定
+    -->
+    <tbody list-content attr1="advertising.Banners_GetList.content.Data.List" attr2="_view.banner.list"></tbody>
+
+
+
+
+</table>
+
+<!--<div tm-pagination conf="tt"></div>-->
+<!--<div request attr1="Banners_GetList" attr1="advertising.Banners_GetList.request" attr1="advertising.Banners_GetList.content"></div>-->
+
+
+
+<!--<table class="table table-hover table-bordered">-->
+    <!--&lt;!&ndash;排序组件-->
+    <!--指令1：sort（排序行为）-->
+    <!--控制器1:listSort（数据结构）-->
+
+    <!--修改：-->
+    <!--listEvent.materials-->
+    <!--&ndash;&gt;-->
+    <!--<div list-top attr="listEvent.materials"></div>-->
+    <!--&lt;!&ndash;单个项目操作-->
+    <!--指令1：content（内容行为）-->
+    <!--控制器1:content（数据结构）-->
+
+    <!--修改：-->
+    <!--items-->
+    <!--&ndash;&gt;-->
+    <!--<tbody ng-controller="content">-->
+    <!--<tr ng-repeat="item in items" class="vertical-middle">-->
+        <!--<td class="text-center" ng-repeat="(key, value) in item" ng-bind="value"></td>-->
+        <!--<td>-->
+            <!--<button type="button" class="btn btn-info" ng-bind="button.edit"></button>-->
+            <!--<button type="button" class="btn btn-warning" ng-bind="button.down"></button>-->
+            <!--<button type="button" class="btn btn-danger" ng-bind="button.delete"></button>-->
+        <!--</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+<!--</table>-->
