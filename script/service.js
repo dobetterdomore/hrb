@@ -38,7 +38,7 @@ backApp.factory("interceptor",["$q","$cookieStore","infoTransfer","ResultFalse",
             console.log(response.data.Result);
             if(response.data.Result) {
                 if (response.data.Result == true) {
-                    console.log("Result.True")
+                    console.log("Result.True");
                     //请求中的身份验证信息
                     if(response.data.Token){
                         $cookieStore.put("Token", response.data.Token);
@@ -367,29 +367,31 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
                     //确定地址
                     url = ajaxUrl.root+ajaxUrl.content;
                     //重构请求数据
-                    p.NewsUID = list.FilesUID;
+                    p.FilesUID = list.FilesUID;
 
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
                 case "Library_DelFile":
                     //确定地址
                     url = ajaxUrl.root+ajaxUrl.content;
                     //重构请求数据
-                    p.NewsUID = list.FilesUID;
+                    p.UID = list.UID;
 
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
                 case "Library_Create":
                     url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.FilesUID = list.FilesUID;
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
 
                     break;
@@ -401,7 +403,7 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
 
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
                 case "Library_Update":
@@ -412,7 +414,7 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
 
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
                 case "Library_Delete":
@@ -423,7 +425,7 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
 
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
                 case "Library_Review":
@@ -434,7 +436,7 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
 
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
                 case "Library_SetShowedOrHidden":
@@ -442,10 +444,11 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
                     url = ajaxUrl.root+ajaxUrl.content;
                     //重构请求数据
                     p.LibraryUID = list.UID;
+                    p.Showed = !list.Showed;
 
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
                 case "Library_SetTop":
@@ -453,17 +456,17 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
                     url = ajaxUrl.root+ajaxUrl.content;
                     //重构请求数据
                     p.LibraryUID = list.UID;
-
+                    p.SetTop = !list.SetTop;
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
                 case "Library_GetList":
                     //确定地址
                     url = ajaxUrl.root+ajaxUrl.content;
                     //重构请求数据
-
+                    p.PageSize = 10;
                     requestParam = {
                         Act:n,
                         Param:forRequest(p)
@@ -473,153 +476,361 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
                     //确定地址
                     url = ajaxUrl.root+ajaxUrl.content;
                     //重构请求数据
-                    p.LibraryUID = list.FilesUID;
+                    p.FilesUID = list.FilesUID;
 
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
-                case "download":
+                case "LibraryDownload":
                     //确定地址
                     url = ajaxUrl.root+ajaxUrl.content;
                     //重构请求数据
-                    p.NewsUID = list.FilesUID;
+                    p.FilesUID = list.FilesUID;
 
                     requestParam = {
                         Act:n,
-                        Param:p
+                        Param:forRequest(p)
                     };
                     break;
 
                 //六、Opportunity
                 case "Opportunity_UpdateCollaboration":
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.ApplicationUID = list.UID;
 
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "Opportunity_DeleteCollaboration":
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.ApplicationUID = list.UID;
 
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "Opportunity_GetSingleCollaborationInfo":
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.ApplicationUID = list.UID;
 
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "Opportunity_GetCollaborationList":
-
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.PageSize = 10;
+                    
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "Opportunity_ReviewCollaboration":
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.ApplicationUID = list.UID;
 
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "Opportunity_SetCollaborationShowedOrHidden":
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.ApplicationUID = list.UID;
+                    p.Showed = !list.Showed;
 
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "Opportunity_DeleteJobRelease":
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.JobReleaseUID = list.UID;
 
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "Opportunity_GetSingleJobReleaseInfo":
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.JobReleaseUID = list.UID;
 
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "Opportunity_SetJobReleaseShowedOrHidden":
-
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.JobReleaseUID = list.UID;
+                    p.Showed = list.Showed;
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "Opportunity_GetJobReleaseList":
                     //确定地址
                     url = ajaxUrl.root+ajaxUrl.content;
                     //重构请求数据
-
+                    p.PageSize = 10;
+                    
                     requestParam = {
                         Act:n,
                         Param:forRequest(p)
                     };
                     break;
                 case "Opportunity_DeleteSampleTest":
-
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.SampleTestUID = list.UID;
+                    
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
+                    
                     break;
                 case "Opportunity_GetSingleSampleTestInfo":
-
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.SampleTestUID = list.UID;
+                    
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "Opportunity_GetSampleTestList":
                     //确定地址
                     url = ajaxUrl.root+ajaxUrl.content;
                     //重构请求数据
-
+                    p.PageSize = 10;
                     requestParam = {
                         Act:n,
                         Param:forRequest(p)
                     };
                     break;
                 case "Opportunity_UpdateTechTransfer":
-
-                    break;
-                case "Opportunity_DeleteTechTransfer":
-
-                    break;
-                case "Opportunity_GetSingleTechTransferInfo":
-
-                    break;
-                case "Opportunity_GetTechTransferList":
                     //确定地址
                     url = ajaxUrl.root+ajaxUrl.content;
                     //重构请求数据
-
+                    p.TechTransferUID = list.UID;
+                    
                     requestParam = {
                         Act:n,
                         Param:forRequest(p)
                     };
                     break;
+                case "Opportunity_DeleteTechTransfer":
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.TechTransferUID = list.UID;
+                    
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
+                    break;
+                case "Opportunity_GetSingleTechTransferInfo":
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.TechTransferUID = list.UID;
+                    
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
+                    break;
+                case "Opportunity_GetTechTransferList":
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.PageSize = 10;
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
+                    break;
+                
                 //七、Optical School
                 case "OpticalSchool_CreateActivity":
-
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "OpticalSchool_UpdateActivity":
-
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.ActivityUID = list.UID;
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "OpticalSchool_DeleteActivity":
-
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.ActivityUID = list.UID;
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "Opportunity_GetSingleActivityInfo":
-
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.ActivityUID = list.UID;
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "OpticalSchool_GetActivitiesList":
                     //确定地址
                     url = ajaxUrl.root+ajaxUrl.content;
                     //重构请求数据
-
+                    p.PageSize = 10;
                     requestParam = {
                         Act:n,
                         Param:forRequest(p)
                     };
                     break;
                 case "OpticalSchool_UploadResearchExFile":
-
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.FilesUID = list.UID;
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "OpticalSchool_DelResearchExFile":
-
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.UID = list.UID;
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "OpticalSchool_CreateResearchEx":
-
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.FilesUID = list.UID;
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "OpticalSchool_GetSingleResearchExInfo":
-
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.ResearchExUID = list.UID;
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "OpticalSchool_UpdateResearchEx":
-
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.ResearchExUID = list.UID;
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "OpticalSchool_DeleteResearchEx":
-
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.ResearchExUID = list.UID;
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "OpticalSchool_ReviewResearchEx":
-
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.ResearchExUID = list.UID;
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "OpticalSchool_SetResearchExShowedOrHidden":
-
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.ResearchExUID = list.UID;
+                    p.Showed = !list.Showed;
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "OpticalSchool_SetResearchExTop":
-
+                    //确定地址
+                    url = ajaxUrl.root+ajaxUrl.content;
+                    //重构请求数据
+                    p.ResearchExUID = list.UID;
+                    p.SetTop = !list.SetTop;
+                    requestParam = {
+                        Act:n,
+                        Param:forRequest(p)
+                    };
                     break;
                 case "OpticalSchool_GetResearchExList":
                     //确定地址
                     url = ajaxUrl.root+ajaxUrl.content;
                     //重构请求数据
-
+                    p.PageSize = 10;
                     requestParam = {
                         Act:n,
                         Param:forRequest(p)

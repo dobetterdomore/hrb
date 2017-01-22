@@ -582,7 +582,7 @@ backApp.controller("list",["$scope","$cookieStore","pushOrder", function ($scope
         },
         Library_GetFileHtml:{
             request:{
-                FileUID:null
+                FilesUID:null
             },
             content:{
                 Result:null,
@@ -592,13 +592,14 @@ backApp.controller("list",["$scope","$cookieStore","pushOrder", function ($scope
                 }
             }
         },
-        download:{
+        LibraryDownload:{
             request:{
-                FileUID:null
+                FilesUID:null
             }
         }
     };
     //Opportunity接口数据结构录入（完成）
+    //Collaboration"申请"接口数据
     $scope.oppounity = {
         Opportunity_UpdateCollaboration:{
             request:{
@@ -734,7 +735,7 @@ backApp.controller("list",["$scope","$cookieStore","pushOrder", function ($scope
         Opportunity_GetJobReleaseList:{
             request:{
                 'JobReleaseIndex ':' CreatedDateTime',
-                ' JobType ':10,
+                'JobType ':10,
                 'PageSize':1,
                 'PageNumber':1
             },
@@ -1212,9 +1213,9 @@ backApp.controller("list",["$scope","$cookieStore","pushOrder", function ($scope
                 }
             }
         },
-        downLoad:{
+        OpticalSchool_downLoad:{
             request:{
-                'FileUID':'25eaa840-4355-4136-adf9-18125c4eef92'
+                'FilesUID':'25eaa840-4355-4136-adf9-18125c4eef92'
             }
         },
         OpticalSchool_CreateVideo:{
@@ -1610,7 +1611,7 @@ backApp.controller("list",["$scope","$cookieStore","pushOrder", function ($scope
         },
         Products_GetProductFileHtml:{
             request:{
-                FileUID:null
+                FilesUID:null
             },
             content:{
                 Result: null,
@@ -1622,7 +1623,7 @@ backApp.controller("list",["$scope","$cookieStore","pushOrder", function ($scope
         },
         download:{
             request:{
-                FileUID:null
+                FilesUID:null
             }
         }
     };
@@ -2125,7 +2126,7 @@ backApp.controller("list",["$scope","$cookieStore","pushOrder", function ($scope
         },
         ClientDocuments_GetFileHtml:{
             request:{
-                'FileUID':'2493fd26-e22a-463a-82fc-b9d151e11cef'
+                'FilesUID':'2493fd26-e22a-463a-82fc-b9d151e11cef'
             },
             content:{
                 "Result": true,
@@ -2137,7 +2138,7 @@ backApp.controller("list",["$scope","$cookieStore","pushOrder", function ($scope
         },
         download:{
             request:{
-                'FileUID':'8c134c7a-05ec-4f8f-a424-524083d56bc4'
+                'FilesUID':'8c134c7a-05ec-4f8f-a424-524083d56bc4'
             },
             content:{
                 Result:null
