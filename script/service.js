@@ -121,7 +121,8 @@ backApp.factory("pushOrder",["getData","infoTransfer",function(getData,infoTrans
     //删除所有为NUll的数据
     function forRequest(a){
         for(x in a){
-            if(a[x] === null){
+            if(a[
+                    x] === null){
                 delete a[x];
             }
         }
